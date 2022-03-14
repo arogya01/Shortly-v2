@@ -1,29 +1,30 @@
 import Head from 'next/head'
-import {
-  basicStyles,
-  otherStyles,
-  someMoreBasicStyles,
-  someCssAsObject,
-  combinedAsArray,
-  cxExample,
-  keyframesExample,
-} from '../shared/styles'
+import HeroSection from '../components/core/HeroSection/HeroSection';
+import Shortner from '../components/core/Shortner/Shortner';
+import Footer from '../components/core/Footer/Footer';
+import Features from '../components/core/Features/Features';
+import dynamic from 'next/dynamic';
+import ShortenedLinkProvider from '../context/ShortenedLinksContext';
+import GlobalSpinnerProvider from '../context/globalSpinnerContext';
+const Navbar = dynamic(
+  () => {
+    return import('../components/core/Navbar/Navbar')
+  },{
+    ssr:false
+  }
+) 
 
 const Home = () => (
   <>
-    <Head>
-      <title>Emotion using the vanilla version supporting SSR</title>
-    </Head>
-    <div>
-      <h1>Emotion Vanilla example</h1>
-      <div className={basicStyles}>Basic styles using emotion</div>
-      <div className={otherStyles}>Some more styles using emotion</div>
-      <div className={someMoreBasicStyles}>Well why not here is some more</div>
-      <div className={someCssAsObject}>Object styles using emotion css</div>
-      <div className={combinedAsArray}>Array of styles using emotion css</div>
-      <div className={cxExample}>cx example from emotion</div>
-      <div className={keyframesExample} />
-    </div>
+  <GlobalSpinnerProvider>
+   <ShortenedLinkProvider>
+    <Navbar />
+    <HeroSection />
+    <Shortner />
+    <Features />
+    <Footer />
+    </ShortenedLinkProvider>
+    </GlobalSpinnerProvider>
   </>
 )
 
