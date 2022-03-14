@@ -6,6 +6,11 @@ import Features from '../components/core/Features/Features';
 import dynamic from 'next/dynamic';
 import ShortenedLinkProvider from '../context/ShortenedLinksContext';
 import GlobalSpinnerProvider from '../context/globalSpinnerContext';
+import themes from './themes';
+import { ThemeProvider } from '@emotion/react';
+import '../shared/styles';
+
+
 const Navbar = dynamic(
   () => {
     return import('../components/core/Navbar/Navbar')
@@ -16,6 +21,7 @@ const Navbar = dynamic(
 
 const Home = () => (
   <>
+  <ThemeProvider theme={themes}>
   <GlobalSpinnerProvider>
    <ShortenedLinkProvider>
     <Navbar />
@@ -25,6 +31,7 @@ const Home = () => (
     <Footer />
     </ShortenedLinkProvider>
     </GlobalSpinnerProvider>
+    </ThemeProvider>
   </>
 )
 

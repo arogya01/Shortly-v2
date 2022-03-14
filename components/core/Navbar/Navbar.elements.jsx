@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { padding } from "styled-system";
+import {spacing} from 'styled-system';
 
 export const NavContainer = styled.nav`
     display:flex; 
@@ -8,8 +10,7 @@ export const NavContainer = styled.nav`
 
     @media(min-width:875px){
         justify-content:start;
-        margin-left:10rem;
-        padding-left:5rem;
+        ${padding}
         padding-top:1.5rem;
         align-items:center;
 

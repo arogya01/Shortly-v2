@@ -95,7 +95,7 @@ const Navbar = () => {
 
   return (
     <>
-      <NavContainer>
+      <NavContainer pl="16rem" pt="1.5rem" >
         <WebsiteLogoWrapper>
           <WebsiteLogo />
         </WebsiteLogoWrapper>
